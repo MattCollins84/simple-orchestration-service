@@ -2,11 +2,8 @@
 	display: none;
 }
 
-.table.ellipsis td {
-    max-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+.invisible {
+	visibility: hidden;
 }
 
 .mt20 {
@@ -17,10 +14,11 @@
 	margin-bottom: 20px;
 }
 
-.grey {
-	color: grey;
+.mr10 {
+	margin-right: 10px;
 }
 
-.green {
-	color: #5cb85c;
+input.input-err {
+	border: 1px solid #a94442;
+	background: #f9d4d3;
 }

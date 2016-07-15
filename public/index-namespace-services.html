@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>IBM Cloud Data Services | Simple Orchestration Service</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/sos.css" rel="stylesheet">
+
+  <script src="/js/render.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+	<script>
+	  var namespace = location.pathname.split("/")[2];
+    
+    var socket = io();
+    socket.on(namespace+"-services", function(){
+      load("/"+namespace+"/services", "Index of /"+namespace+"/services")
+    });
+
+    $(document).ready(function() {
+      load("/"+namespace+"/services", "Index of /"+namespace+"/services");
+      breadcrumbs();
+    });
+	</script>
+
+</head>
+<body>
+
+  <div class="container">
+
+    <ol class="breadcrumb" id='breadcrumbs'>
+      
+    </ol>
+
+    <div class="row">
+
+      <h1 id='header'></h1>
+
+    </div>
+
+    <div class="row">
+
+      <ul class="list-group" id="index">
+        
+      </ul>
+
+    </div>
+
+  </div>
+
+
+  <script src="/js/bootstrap.min.js"></script>
+
+</body>
+</html>
