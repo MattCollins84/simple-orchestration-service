@@ -9,17 +9,12 @@ const express = require('express'),
       service = require('./lib/service.js'),
       env = require('./lib/env.js'),
       _ = require('underscore'),
-      missing = require('./lib/utility.js').missing,
       handleRes = require('./lib/utility.js').handleRes,
       etcd  = require('./lib/etcd.js')
 
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
-
-// io.on("connection", function() {
-//   console.log("IO connected");
-// })
 
 // Use Passport to provide basic HTTP auth when locked down
 const passport = require('passport');
@@ -35,7 +30,7 @@ app.use(compression());
 var watcher = etcd.watcher("/root", null, { recursive: true })
 watcher
 .on("change", function(data) {
-  console.log(data);
+
   // if we have a key
   if (_.isObject(data) && _.isObject(data.node) && data.node.key) {
 
@@ -77,8 +72,6 @@ watcher
       emitKeys = emitKeys.concat([`${nspace}`, `${nspace}-env`])
 
     }
-
-    console.log(emitKeys);
 
     // emit to the required keys
     emitKeys.forEach(ek => {
