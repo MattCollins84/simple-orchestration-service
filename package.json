@@ -12,7 +12,6 @@
     "cors": "^2.7.1",
     "express": "^4.14.0",
     "node-etcd": "^5.0.3",
-    "optimist": "^0.6.1",
     "passport": "^0.3.2",
     "passport-anonymous": "^1.0.1",
     "passport-http": "^0.3.0",
